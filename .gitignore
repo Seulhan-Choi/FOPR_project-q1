@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# etc
+*.dbmld
+*.jfm
+*.vsidx
+*.opendb
