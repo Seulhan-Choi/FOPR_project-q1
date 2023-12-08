@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "include.h"
-#include "monstermovement.h"
+#include "mapa.h"
+#include "monsterpathfind.h"
 #include "playermovement.h"
 
 using namespace std;
@@ -20,7 +20,6 @@ int main()
 		}
 	}
 	int a, b, x, y;
-	cout << "hola1" << endl;//hola mis cojones
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
@@ -50,8 +49,12 @@ int main()
 	char c, ant = '_';
 	bool trobat = true;
 	int movs = 0;
+	bool toggleMonsterVision = false;
 
 	while (cin >> c && trobat) {
+		if (toggleMonsterVision == false && mat1[x][y] == 'T' && mat2[x][y] == true) {	//comença a moure el minotaure al ser vist per el jugador
+			toggleMonsterVision = true;
+		}
 		if (c == 'S') {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < m; j++) {
@@ -70,98 +73,29 @@ int main()
 			if (c == 'D') {
 				moveT_D(mat1, a, b, trobat);
 				if (movs % 2 == 0) {
-					//CONSULTORI DISTANCIA//
-					int diff1 = x - a;
-					int diff2 = y - b;
-					if (diff1 < 0) {
-						diff1 = diff1 * -1;
-					}
-					if (diff2 < 0) {
-						diff2 = diff2 * -1;
-					}
-					////////////////////////
-					if (diff1 > diff2) {
-						moveM_L(mat1, x, y, ant, trobat);
-					}
-					else if (diff1 < diff2) {
-						moveM_U(mat1, x, y, ant, trobat);
-					}
-					else if (diff1 == diff2) {
-						moveM_R(mat1, x, y, ant, trobat);
-					}
+					monsterpath(mat1, x, y, ant, trobat, a, b);
 				}
 			}
 			if (c == 'L') {
 				moveT_L(mat1, a, b, trobat);
 				if (movs % 2 == 0) {
-					//CONSULTORI DISTANCIA//
-					int diff1 = x - a;
-					int diff2 = y - b;
-					if (diff1 < 0) {
-						diff1 = diff1 * -1;
-					}
-					if (diff2 < 0) {
-						diff2 = diff2 * -1;
-					}
-					////////////////////////
-					if (diff1 < diff2) {
-						moveM_U(mat1, x, y, ant, trobat);
-					}
-					else if (diff1 > diff2) {
-						moveM_R(mat1, x, y, ant, trobat);
-					}
-					else if (diff1 == diff2) {
-						moveM_L(mat1, x, y, ant, trobat);
-					}
+					monsterpath(mat1, x, y, ant, trobat, a, b);
 				}
 			}
 			if (c == 'R') {
 				moveT_R(mat1, a, b, trobat);
 				if (movs % 2 == 0) {
-					//CONSULTORI DISTANCIA//
-					int diff1 = x - a;
-					int diff2 = y - b;
-					if (diff1 < 0) {
-						diff1 = diff1 * -1;
-					}
-					if (diff2 < 0) {
-						diff2 = diff2 * -1;
-					}
-					////////////////////////
-					if (diff1 > diff2) {
-						moveM_L(mat1, x, y, ant, trobat);
-					}
-					else if (diff1 < diff2) {
-						moveM_R(mat1, x, y, ant, trobat);
-					}
-					else if (diff1 == diff2) {
-						moveM_L(mat1, x, y, ant, trobat);
-					}
+					monsterpath(mat1, x, y, ant, trobat, a, b);
 				}
 			}
 			if (c == 'U') {
 				moveT_U(mat1, a, b, trobat);
 				if (movs % 2 == 0) {
-					//CONSULTORI DISTANCIA//
-					int diff1 = x - a;
-					int diff2 = y - b;
-					if (diff1 < 0) {
-						diff1 = diff1 * -1;
-					}
-					if (diff2 < 0) {
-						diff2 = diff2 * -1;
-					}
-					////////////////////////
-					if (diff1 >= diff2) {
-						moveM_U(mat1, x, y, ant, trobat);
-					}
-					else {
-						moveM_L(mat1, x, y, ant, trobat);
-					}
+					monsterpath(mat1, x, y, ant, trobat, a, b);
 				}
 			}
 		}
-		mapa(mat1, mat2, mat3);
+	mapa(mat1, mat2, mat3);
 	}
 	return 0;
 }

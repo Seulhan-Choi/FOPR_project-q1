@@ -59,3 +59,4 @@ void moveM_R(vector<vector<char>>& mat1, int& x, int& y, char& ant, bool& trobat
 		mat1[x][y + 1] = 'M';
 	}
 }
+
