@@ -94,6 +94,10 @@ int main()
 					monsterpath(mat1, x, y, ant, trobat, a, b);
 				}
 			}
+			//TEST STATEMENT
+			if (c == 'K') {
+				monsterpath(mat1, x, y, ant, trobat, a, b);
+			}
 		}
 	mapa(mat1, mat2, mat3);
 	}

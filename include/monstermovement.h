@@ -15,6 +15,7 @@ void moveM_D(vector<vector<char>>& mat1, int& x, int& y, char& ant, bool& trobat
 		mat1[x][y] = ant;
 		ant = mat1[x + 1][y];
 		mat1[x + 1][y] = 'M';
+		cout << "MONSTERDOWN";//test
 	}
 
 }
@@ -29,6 +30,7 @@ void moveM_U(vector<vector<char>>& mat1, int& x, int& y, char& ant, bool& trobat
 		mat1[x][y] = ant;
 		ant = mat1[x - 1][y];
 		mat1[x - 1][y] = 'M';
+		cout << "MONSTERUP";//test
 	}
 
 }
@@ -43,6 +45,7 @@ void moveM_L(vector<vector<char>>& mat1, int& x, int& y, char& ant, bool& trobat
 		mat1[x][y] = ant;
 		ant = mat1[x][y - 1];
 		mat1[x][y - 1] = 'M';
+		cout << "MONSTERLEFT";//test
 	}
 }
 
@@ -57,6 +60,7 @@ void moveM_R(vector<vector<char>>& mat1, int& x, int& y, char& ant, bool& trobat
 		mat1[x][y] = ant;
 		ant = mat1[x][y + 1];
 		mat1[x][y + 1] = 'M';
+		cout << "MONSTERRIGHT";//test
 	}
 }
 
