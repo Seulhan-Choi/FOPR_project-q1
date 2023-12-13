@@ -36,7 +36,7 @@ void mapa(vector<vector<char>>& mat1, vector<vector<bool>>& mat2, vector<vector<
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
             // Check if the corresponding element in mat2 is true.
-            if (mat2[i][j]) {
+            if (mat2[i][j] == true) {
                 // Copy the element from mat1 to mat3.
                 mat3[i][j] = mat1[i][j];
                 // If the element in mat1 is '_', replace it with a space in mat3.

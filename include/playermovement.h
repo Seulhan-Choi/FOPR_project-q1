@@ -76,7 +76,7 @@ void moveT_R(vector<vector<char>>& mat1, int& a, int& b, bool& trobat) {
         }
         else if (mat1[a][b + 1] == '_') {
             mat1[a][b + 1] = mat1[a][b];
-            mat1[a][b] = ' ';
+            mat1[a][b] = '_';
             b = b + 1;
         }
     }
