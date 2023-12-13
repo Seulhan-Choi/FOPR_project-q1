@@ -52,7 +52,7 @@ int main()
 	bool toggleMonsterVision = false;
 
 	while (cin >> c && trobat) {
-		if (toggleMonsterVision == false && mat1[x][y] == 'T' && mat2[x][y] == true) {	//comença a moure el minotaure al ser vist per el jugador
+		if (toggleMonsterVision == false && mat1[x][y] == 'T' && mat2[x][y] == true) {	//starts minotaur movement when revealed by player
 			toggleMonsterVision = true;
 		}
 		if (c == 'S') {
