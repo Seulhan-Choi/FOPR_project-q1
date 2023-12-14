@@ -13,7 +13,7 @@ void moveT_D(vector<vector<char>>& mat1, int& a, int& b, bool& trobat) {
             trobat = false;
         }
         else if (mat1[a + 1][b] == 'M') {
-            cout << "Has perdut! El Minotaure t’ha atrapat!" << endl;
+            cout << "Has perdut! El Minotaure t'ha atrapat!" << endl;
             trobat = false;
         }
         else if (mat1[a + 1][b] == '_') {
@@ -32,7 +32,7 @@ void moveT_U(vector<vector<char>>& mat1, int& a, int& b, bool& trobat) {
             trobat = false;
         }
         else if (mat1[a - 1][b] == 'M') {
-            cout << "Has perdut! El Minotaure t’ha atrapat!" << endl;
+            cout << "Has perdut! El Minotaure t'ha atrapat!" << endl;
             trobat = false;
         }
         else if (mat1[a - 1][b] == '_') {
@@ -51,7 +51,7 @@ void moveT_L(vector<vector<char>>& mat1, int& a, int& b, bool& trobat) {
             trobat = false;
         }
         else if (mat1[a][b - 1] == 'M') {
-            cout << "Has perdut! El Minotaure t’ha atrapat!" << endl;
+            cout << "Has perdut! El Minotaure t'ha atrapat!" << endl;
             trobat = false;
         }
         else if (mat1[a][b - 1] == '_') {
@@ -71,7 +71,7 @@ void moveT_R(vector<vector<char>>& mat1, int& a, int& b, bool& trobat) {
             trobat = false;
         }
         else if (mat1[a][b + 1] == 'M') {
-            cout << "Has perdut! El Minotaure t’ha atrapat!" << endl;
+            cout << "Has perdut! El Minotaure t'ha atrapat!" << endl;
             trobat = false;
         }
         else if (mat1[a][b + 1] == '_') {

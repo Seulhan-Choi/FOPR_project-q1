@@ -46,7 +46,8 @@ int main()
 		cout << endl;
 	}
 
-	char c, ant = '_';
+	char c;
+	char ant = '_';
 	bool trobat = true;
 	int movs = 0;
 	bool toggleMonsterVision = false;
@@ -93,10 +94,6 @@ int main()
 				if (movs % 2 == 0) {
 					monsterpath(mat1, x, y, ant, trobat, a, b);
 				}
-			}
-			//TEST STATEMENT
-			if (c == 'K') {
-				monsterpath(mat1, x, y, ant, trobat, a, b);
 			}
 		}
 	mapa(mat1, mat2, mat3);
