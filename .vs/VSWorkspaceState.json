@@ -6,7 +6,10 @@
     ]
   },
   "ExpandedNodes": [
-    ""
+    "",
+    "\\include",
+    "\\src"
   ],
+  "SelectedNode": "\\include\\mapa.h",
   "PreviewInSolutionExplorer": false
 }

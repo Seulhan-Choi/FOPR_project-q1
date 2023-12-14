@@ -49,11 +49,11 @@ int main()
 	char c;
 	char ant = '_';
 	bool trobat = true;
-	int movs = 0;
+	int movs = 1;
 	bool toggleMonsterVision = false;
 
 	while (cin >> c && trobat) {
-		if (toggleMonsterVision == false && mat1[x][y] == 'T' && mat2[x][y] == true) {	//starts minotaur movement when revealed by player
+		if (toggleMonsterVision == false && mat2[x][y] == true) {	//starts minotaur movement when revealed by player
 			toggleMonsterVision = true;
 		}
 		if (c == 'S') {
@@ -72,27 +72,27 @@ int main()
 		else {
 			movs++;
 			if (c == 'D') {
-				moveT_D(mat1, a, b, trobat);
-				if (movs % 2 == 0) {
-					monsterpath(mat1, x, y, ant, trobat, a, b);
+				moveT_D(mat1, a, b, trobat, movs);
+				if (movs % 2 == 0 && trobat)	{
+					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'L') {
-				moveT_L(mat1, a, b, trobat);
-				if (movs % 2 == 0) {
-					monsterpath(mat1, x, y, ant, trobat, a, b);
+				moveT_L(mat1, a, b, trobat, movs);
+				if (movs % 2 == 0 && trobat) {
+					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'R') {
-				moveT_R(mat1, a, b, trobat);
-				if (movs % 2 == 0) {
-					monsterpath(mat1, x, y, ant, trobat, a, b);
+				moveT_R(mat1, a, b, trobat, movs);
+				if (movs % 2 == 0 && trobat) {
+					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'U') {
-				moveT_U(mat1, a, b, trobat);
-				if (movs % 2 == 0) {
-					monsterpath(mat1, x, y, ant, trobat, a, b);
+				moveT_U(mat1, a, b, trobat, movs);
+				if (movs % 2 == 0 && trobat) {
+					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
 				}
 			}
 		}
