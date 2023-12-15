@@ -48,10 +48,6 @@ En aquest joc el jugador esta atrapat en un laberint i ha de trobar la sortida a
   - `toggleMonsterVision`: Determina si el Minotaure comença a moure's.
   - `previousCell`: Manté el contingut de la cel·la anterior on es trobava el Minotaure.
 
-### Consideracions Addicionals
-- **Comentaris**: El codi inclou comentaris detallats per facilitar la comprensió.
-- **Testeig**: Es recomana testejar manualment el joc per assegurar-se que tot funciona com s'espera.
-
 ## Conclusió
 
 Aquest document proporciona una visió general de com funciona el joc. El codi està ben estructurat i dissenyat per ser modular i fàcil d'entendre. Els comentaris i la documentació ajudaran altres desenvolupadors o usuaris a comprendre el funcionament del joc.
