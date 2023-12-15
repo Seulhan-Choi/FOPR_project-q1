@@ -204,15 +204,6 @@ MyProject_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 MyProject_SOURCE_DIR:STATIC=C:/Users/me/source/repos/Seulhan-Choi/FOPR_project-q1
 
-//Value Computed by CMake
-Project_BINARY_DIR:STATIC=C:/Users/me/source/repos/Seulhan-Choi/FOPR_project-q1/out/build/x64-Debug
-
-//Value Computed by CMake
-Project_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Project_SOURCE_DIR:STATIC=C:/Users/me/source/repos/Seulhan-Choi/FOPR_project-q1
-
 
 ########################
 # INTERNAL cache entries

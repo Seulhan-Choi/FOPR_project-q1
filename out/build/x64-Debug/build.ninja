@@ -57,6 +57,14 @@ build CMakeFiles\MyProject.dir\src\main.cpp.obj: CXX_COMPILER__MyProject_unscann
   TARGET_COMPILE_PDB = CMakeFiles\MyProject.dir\
   TARGET_PDB = MyProject.pdb
 
+build CMakeFiles\MyProject.dir\presentation\source.cpp.obj: CXX_COMPILER__MyProject_unscanned_Debug C$:\Users\me\source\repos\Seulhan-Choi\FOPR_project-q1\presentation\source.cpp || cmake_object_order_depends_target_MyProject
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -IC:\Users\me\source\repos\Seulhan-Choi\FOPR_project-q1\include
+  OBJECT_DIR = CMakeFiles\MyProject.dir
+  OBJECT_FILE_DIR = CMakeFiles\MyProject.dir\presentation
+  TARGET_COMPILE_PDB = CMakeFiles\MyProject.dir\
+  TARGET_PDB = MyProject.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MyProject
@@ -65,7 +73,7 @@ build CMakeFiles\MyProject.dir\src\main.cpp.obj: CXX_COMPILER__MyProject_unscann
 #############################################
 # Link the executable MyProject.exe
 
-build MyProject.exe: CXX_EXECUTABLE_LINKER__MyProject_Debug CMakeFiles\MyProject.dir\src\main.cpp.obj
+build MyProject.exe: CXX_EXECUTABLE_LINKER__MyProject_Debug CMakeFiles\MyProject.dir\src\main.cpp.obj CMakeFiles\MyProject.dir\presentation\source.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
