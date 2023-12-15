@@ -49,7 +49,7 @@ int main()
 	char c;
 	char ant = '_';
 	bool trobat = true;
-	int movs = 1;
+	int movs = 0;
 	bool toggleMonsterVision = false;
 
 	while (cin >> c && trobat) {
@@ -73,25 +73,25 @@ int main()
 			movs++;
 			if (c == 'D') {
 				moveT_D(mat1, a, b, trobat, movs);
-				if (movs % 2 == 0 && trobat)	{
+				if (movs % 2 == 1 && trobat)	{
 					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'L') {
 				moveT_L(mat1, a, b, trobat, movs);
-				if (movs % 2 == 0 && trobat) {
+				if (movs % 2 == 1 && trobat) {
 					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'R') {
 				moveT_R(mat1, a, b, trobat, movs);
-				if (movs % 2 == 0 && trobat) {
+				if (movs % 2 == 1 && trobat) {
 					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'U') {
 				moveT_U(mat1, a, b, trobat, movs);
-				if (movs % 2 == 0 && trobat) {
+				if (movs % 2 == 1 && trobat) {
 					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
 				}
 			}
