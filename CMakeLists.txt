@@ -5,4 +5,4 @@ set(CMAKE_CXX_ST&&ARD 14)
 
 include_directories(include)
 
-add_executable(MyProject src/main.cpp "include/monsterpathfind.h")
+add_executable(MyProject src/main.cpp "include/" "presentation/source.cpp")

@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include "mapa.h"
-#include "monsterpathfind.h"
-#include "playermovement.h"
+#include "matrixUpdate.h"
+#include "minotaurPathfind.h"
+#include "teseuMovement.h"
 
 using namespace std;
 
@@ -11,92 +11,94 @@ int main()
 	int n, m;
 	cin >> n >> m;
 
-	vector<vector<char>> mat1(n, vector<char>(m));
-	vector<vector<bool>> mat2(n, vector<bool>(m, false));
-	vector<vector<char>> mat3(n, vector<char>(m, '.'));
+	vector<vector<char>> currentMap(n, vector<char>(m));
+	vector<vector<bool>> visibilityMap(n, vector<bool>(m, false));
+	vector<vector<char>> displayedMap(n, vector<char>(m, '.'));
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			cin >> mat1[i][j];
+			cin >> currentMap[i][j];
 		}
 	}
 	int a, b, x, y;
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			if (mat1[i][j] == 'T') {
+			if (currentMap[i][j] == 'T') {
 				a = i;
 				b = j;
-				mat2[i][j] = true;
+				visibilityMap[i][j] = true;
 			}
-			if (mat1[i][j] == 'M') {
+			if (currentMap[i][j] == 'M') {
 				x = i;
 				y = j;
 			}
-			if (mat1[i][j] == 'S') {
-				mat2[i][j] = true;
+			if (currentMap[i][j] == 'S') {
+				visibilityMap[i][j] = true;
 			}
 		}
 	}
 
-	mapa(mat1, mat2, mat3);
+	updateVisibilityMatrix(currentMap, visibilityMap, displayedMap);
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
-			cout << mat3[i][j];
+			cout << displayedMap[i][j];
 		}
 		cout << endl;
 	}
+	cout << endl;
 
 	char c;
-	char ant = '_';
-	bool trobat = true;
+	char previousCell = '_';
+	bool isGameActive = true;
 	int movs = 0;
 	bool toggleMonsterVision = false;
 
-	while (cin >> c && trobat) {
-		if (toggleMonsterVision == false && mat2[x][y] == true) {	//starts minotaur movement when revealed by player
+	while (cin >> c && isGameActive) {
+		if (toggleMonsterVision == false && visibilityMap[x][y] == true) {	//starts minotaur movement when revealed by player
 			toggleMonsterVision = true;
 		}
 		if (c == 'S') {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < m; j++) {
-					cout << mat3[i][j];
+					cout << displayedMap[i][j];
 				}
 				cout << endl;
 			}
+			cout << endl;
 		}
 		else if (c == 'Z') {
 			cout << "A reveure!" << endl;
-			cout << "Has fet " << movs << " moviments." << endl;
-			trobat = false;
+			cout << "Has fet " << movs << " moviments" << endl;
+			isGameActive = false;
 		}
 		else {
 			movs++;
 			if (c == 'D') {
-				moveT_D(mat1, a, b, trobat, movs);
-				if (movs % 2 == 1 && trobat)	{
-					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
+				moveTeseu(currentMap, a, b, 'D', isGameActive, movs);
+				if (movs % 2 == 1 && isGameActive) {
+					minotaurPath(currentMap, x, y, previousCell, isGameActive, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'L') {
-				moveT_L(mat1, a, b, trobat, movs);
-				if (movs % 2 == 1 && trobat) {
-					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
+				moveTeseu(currentMap, a, b, 'L', isGameActive, movs);
+				if (movs % 2 == 1 && isGameActive) {
+					minotaurPath(currentMap, x, y, previousCell, isGameActive, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'R') {
-				moveT_R(mat1, a, b, trobat, movs);
-				if (movs % 2 == 1 && trobat) {
-					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
+				moveTeseu(currentMap, a, b, 'R', isGameActive, movs);
+				if (movs % 2 == 1 && isGameActive) {
+					minotaurPath(currentMap, x, y, previousCell, isGameActive, a, b, toggleMonsterVision);
 				}
 			}
 			if (c == 'U') {
-				moveT_U(mat1, a, b, trobat, movs);
-				if (movs % 2 == 1 && trobat) {
-					monsterpath(mat1, x, y, ant, trobat, a, b, toggleMonsterVision);
+				moveTeseu(currentMap, a, b, 'U', isGameActive, movs);
+				if (movs % 2 == 1 && isGameActive) {
+					minotaurPath(currentMap, x, y, previousCell, isGameActive, a, b, toggleMonsterVision);
 				}
 			}
 		}
-	mapa(mat1, mat2, mat3);
+		updateVisibilityMatrix(currentMap, visibilityMap, displayedMap);
 	}
 	return 0;
 }
