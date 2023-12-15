@@ -21,7 +21,7 @@ En aquest joc el jugador esta atrapat en un laberint i ha de trobar la sortida a
   - Similar a `moveTeseu`, però per al Minotaure.
   - Comprova si el Minotaure atrapa el jugador i actualitza l'estat del joc.
 
-### `monsterpath`
+### `minotaurPath`
 - **Descripció**: Determina la direcció de moviment del Minotaure cap al jugador.
 - **Funcionament**:
   - Calcula la diferència de posició entre el Minotaure i el jugador.
