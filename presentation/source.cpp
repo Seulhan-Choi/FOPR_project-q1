@@ -245,7 +245,7 @@ int main()
             cout << "Has fet " << movs << " moviments" << endl;
             isGameActive = false;
         }
-        else {
+        else if (c == 'U' || c == 'D' || c == 'L' || c == 'R') {
             movs++;
             moveTeseu(currentMap, a, b, c, isGameActive, movs);
             if (movs % 2 == 1 && isGameActive) {    // Comprova si toca moure el minotaure
